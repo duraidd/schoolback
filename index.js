@@ -12,7 +12,7 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-var whitelist = [  
+var whitelist = [ 
   'https://schooltask.vercel.app'
 ];
 
