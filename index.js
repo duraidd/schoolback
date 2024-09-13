@@ -12,9 +12,8 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-var whitelist = [
-  'https://schooltask.vercel.app',
-  'http://localhost:3000'
+var whitelist = [  
+  'https://schooltask.vercel.app'
 ];
 
 var corsOptions = {
