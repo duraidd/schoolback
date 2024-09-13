@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json());
 
 
-var whitelist = ['https://schooltask.vercel.app','http://localhost:3000']
+var whitelist = ['https://schooltask.vercel.app/','https://schooltask.vercel.app','http://localhost:3000']
 var corsOptions = {
     origin: function (origin, callback) {
 
