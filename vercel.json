@@ -8,7 +8,7 @@
     ],
     "routes": [
       {
-        "src": "/aps/(.*)",
+        "src": "/school/(.*)",
         "dest": "/index.js"
       }
     ]
