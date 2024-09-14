@@ -80,16 +80,9 @@ router.post('/addstudent', async (req, res) => {
                 }
             })
 
-
-
-
-
         } else {
             res.json({ status: 400, msg: "Field Required" });
         }
-
-
-
 
     } catch (error) {
         res.json({ status: 401, msg: "Something Went Wrong" });
