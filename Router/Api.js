@@ -1,6 +1,7 @@
 import express from "express";
 import Studentmodel from '../Models/Student.js'
 import Studentclassmap from '../Models/Studentclassmap.js'
+import Studentmark from '../Models/Studentmark.js'
 import mongoose from "mongoose";
 const router = express.Router();
 
@@ -75,8 +76,8 @@ router.post('/addstudent', async (req, res) => {
                             res.json({ status: 400, msg: "Details not added" });
                         }
                     })
-                }else{
-                    res.json({status:400,msg:"Admission no Already Exist"});
+                } else {
+                    res.json({ status: 400, msg: "Admission no Already Exist" });
                 }
             })
 
@@ -332,6 +333,57 @@ router.post('/updateData', async (req, res) => {
 
     }
 })
+
+
+router.post('/addExamdetail', async (req, res) => {
+    try {
+
+        let info = req.body.data;
+
+        await Studentmark.create(info).then((resdata) => {
+            if (resdata) {
+                res.json({ status: 200, msg: "Exam details added successfully" });
+            }
+        })
+
+    } catch (error) {
+        console.log("error", error)
+    }
+})
+
+router.post('/getExamdetail', async (req, res) => {
+    try {
+
+        let info = req.body.rollno;
+        await Studentmark.find({student_rollno:info}).then((resdata)=>{
+          if(resdata.length > 0){
+            res.json({status:200,msg:"Exam Detail",data:resdata})
+          }
+        })
+       
+
+    } catch (error) {
+        console.log("error", error)
+    }
+})
+
+
+router.post('/getExamdetailbyId', async (req, res) => {
+    try {
+
+        let info = req.body._id;
+        await Studentmark.findOne({_id:info}).then((resdata)=>{
+          if(resdata){
+            res.json({status:200,msg:"Exam Details",data:resdata})
+          }
+        })
+       
+
+    } catch (error) {
+        console.log("error", error)
+    }
+})
+
 
 
 export default router;
