@@ -12,11 +12,8 @@ const app = express();
 // Body parser
 app.use(express.json());
 
-app.use('/uploads', express.static('uploads'));
-
-
 var whitelist = [ 
-  'https://airfront.vercel.app','http://localhost:3000','https://schoolback.vercel.app'
+  'https://schooltask.vercel.app','http://localhost:3000'
 ];
 
 var corsOptions = {
@@ -52,7 +49,7 @@ mongoose.connect(process.env.MONGOID, { useNewUrlParser: true, useUnifiedTopolog
   });
 
 // Routing middleware for your API
-app.use("/airdeal", Api);
+app.use("/school", Api);
 
 // Welcome route
 app.get("/", (req, res) => {
