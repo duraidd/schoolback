@@ -422,7 +422,7 @@ router.post('/upload', upload.single('image'), async (req, res) => {
 
 
             const worker = await createWorker('eng');
-            const ret = await worker.recognize(`https://airback.onrender.com/${cb}`);
+            const ret = await worker.recognize(`https://schoolback.vercel.app/${cb}`);
 
             console.log("ret.data.text", ret.data.text);
 
